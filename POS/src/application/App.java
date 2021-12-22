@@ -3,8 +3,10 @@ package application;
 public class App {
 
 	public static void main(String[] args) {
-		// 카페 포스기 만들기
-
+		
+		POS_Program program = new POS_Program();
+		
+		program.generate();
+		program.selectCategory();
 	}
-
 }
