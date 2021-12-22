@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import menu.Coffee;
 import menu.DrinkMenu;
-import menu.Latte;
 
 public class POS_Program {
-	List<Coffee> coffee = new ArrayList<>();
-	List<Latte> latte = new ArrayList<>();
+	List<DrinkMenu> coffee = new ArrayList<>();
+	List<DrinkMenu> latte = new ArrayList<>();
 	
 	// 스캐너
 	Scanner scanner = new Scanner(System.in);
@@ -24,15 +22,15 @@ public class POS_Program {
 	
 	public void generate() {
 		
-		coffee.add(new Coffee("아메리카노", 2000));
-		coffee.add(new Coffee("카페 라떼", 3000));
-		coffee.add(new Coffee("카푸치노", 3000));
-		coffee.add(new Coffee("바닐라 라떼", 3700));
+		coffee.add(new DrinkMenu("아메리카노", 2000));
+		coffee.add(new DrinkMenu("카페 라떼", 3000));
+		coffee.add(new DrinkMenu("카푸치노", 3000));
+		coffee.add(new DrinkMenu("바닐라 라떼", 3700));
 		
-		latte.add(new Latte("초콜릿 라뗴", 3200));
-		latte.add(new Latte("그린티 라떼", 3200));
-		latte.add(new Latte("밀크티 라떼", 3200));
-		latte.add(new Latte("민트초코 라떼", 3200));
+		latte.add(new DrinkMenu("초콜릿 라뗴", 3200));
+		latte.add(new DrinkMenu("그린티 라떼", 3200));
+		latte.add(new DrinkMenu("밀크티 라떼", 3200));
+		latte.add(new DrinkMenu("민트초코 라떼", 3200));
 
 	}
 	
@@ -67,17 +65,17 @@ public class POS_Program {
 			Proceed = false;
 		}
 		else if(category.equals("coffee")) {
-			selectCoffe(coffee);
+			selectMenu(coffee);
 		}
 		else if(category.equals("latte")) {
-			selectLatte(latte);
+			selectMenu(latte);
 		}
 		else {
 			System.out.println("잘못된 입력입니다. 메뉴 종류를 다시 입력해주세요.");
 		}
 	}
 
-	private void selectCoffe(List<Coffee> menu) {
+	private void selectMenu(List<DrinkMenu> menu) {
 		System.out.println("━━━━━━━ 주문 메뉴 ━━━━━━━");
 		for(DrinkMenu showMenu : menu) {
 			System.out.println(showMenu);
@@ -103,22 +101,7 @@ public class POS_Program {
 			n = 3;
 			putOrder(menu.get(n));
 		}
-		else {
-			System.out.println("잘못된 입력입니다. 음료를 다시 선택해주세요");
-		}
-	}
-	
-	private void selectLatte(List<Latte> menu) {
-		System.out.println("━━━━━━━ 주문 메뉴 ━━━━━━━");
-		for(DrinkMenu showMenu : menu) {
-			System.out.println(showMenu);
-		}
-		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━");
-		System.out.print("음료를 선택해주세요 : ");
-		String drink = scanner.nextLine();
-		drink = drink.replace(" ", "");
-		
-		if (drink.equals("초콜릿라떼")) {
+		else if (drink.equals("초콜릿라떼")) {
 			n = 0;
 			putOrder(menu.get(n));
 		}
