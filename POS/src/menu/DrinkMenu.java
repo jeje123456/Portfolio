@@ -1,12 +1,16 @@
 package menu;
 
 public class DrinkMenu {
-	private String name;
-	private int price;
+	protected String name;
+	protected int price;
+	protected int drinkNumber;
+	private static int countDrink = 0;
 	
 	public DrinkMenu(String name, int price) {
 		this.name = name;
 		this.price = price;
+		countDrink++;
+		drinkNumber = countDrink;
 	}
 
 	public String getName() {
@@ -23,6 +27,10 @@ public class DrinkMenu {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public int getDrinkNumber() {
+		return drinkNumber;
 	}
 
 	@Override

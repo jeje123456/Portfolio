@@ -6,7 +6,8 @@ public class App {
 		
 		POS_Program program = new POS_Program();
 		
-		program.generate();
+		program.generateCustomer();
+		program.generateMenu();
 		program.selectCategory();
 	}
 }

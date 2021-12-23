@@ -9,7 +9,7 @@ public class MainFrame extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	public MainFrame(String title) {
-		super(title);
+		super("카페POS");
 		
 		setVisible(true); // 창을 보이게 함
 		setSize(600,400); // 가로세로 길이 지정

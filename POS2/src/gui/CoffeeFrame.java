@@ -1,14 +1,12 @@
 package gui;
 
-import java.awt.Color;
+import javax.swing.JFrame;
 
-import javax.swing.JPanel;
-
-public class CoffeePanel extends JPanel{
+public class CoffeeFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
-	public CoffeePanel() {
-		setBackground(Color.lightGray);
+	public CoffeeFrame() {
+		
 	}
 }
