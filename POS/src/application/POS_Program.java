@@ -56,7 +56,7 @@ public class POS_Program {
 			System.out.println("┃    Latte    ┃");
 			System.out.println("┗━━━━━━━━━━━━━┛");	
 			System.out.println("주문할 메뉴의 종류를 선택해주세요 : ");		
-			System.out.println("(주문 완료시 '결제'를 입력해주세요)");	
+			System.out.println("(주문 완료시 '결제'를 입력해주세요)");		
 			String category = scanner.nextLine();
 			category = category.replace(" ", "");// 입력된 글자 공란 없애기
 			category = category.toLowerCase(); // 입력된 글자 소문자로 변형
@@ -89,21 +89,6 @@ public class POS_Program {
 			System.out.println("잘못된 입력입니다. 메뉴 종류를 다시 입력해주세요.");
 		}
 	}
-	private void put_Point() {
-		System.out.println("포인트를 적립하시겠습니까? : Y / N");
-		String put_point = scanner.nextLine();
-		put_point = put_point.replace(" ", "");
-		put_point = put_point.toLowerCase();
-		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
-		if (put_point.equals("y")) {
-			checkID(put_point); // ID확인 실행
-		}else if (put_point.equals("n")) {
-			paymentType(); // 결제 실행
-		}else {
-			System.out.println("잘못된 입력입니다. 다시 입력해주세요");
-			put_Point();
-		}
-	}
 	/**
 	 * 커피 선택시 커피메뉴 출력
 	 * @param menu
@@ -126,7 +111,7 @@ public class POS_Program {
 				putOrder(menu.get(n-1));
 				notEquals = false;
 			}
-		}	
+		}
 		if(notEquals) {
 			System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
 			selectCoffee(coffee);
@@ -154,7 +139,7 @@ public class POS_Program {
 				putOrder(menu.get(n-5));
 				notEquals = false;
 			}
-		}	
+		}
 		if(notEquals) {
 			System.out.println("잘못된 입력입니다. 다시 선택해주세요.");
 			selectLatte(latte);
@@ -171,6 +156,24 @@ public class POS_Program {
 		for (DrinkMenu orders : order){
 			System.out.println(orders);
 			total = total + orders.getPrice();
+		}
+	}
+	/**
+	 * 포인트 적립 선택
+	 */
+	private void put_Point() {
+		System.out.println("포인트를 적립하시겠습니까? : Y / N");
+		String put_point = scanner.nextLine();
+		put_point = put_point.replace(" ", "");
+		put_point = put_point.toLowerCase();
+		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		if (put_point.equals("y")) {
+			checkID(put_point); // ID확인 실행
+		}else if (put_point.equals("n")) {
+			paymentType(); // 결제 실행
+		}else {
+			System.out.println("잘못된 입력입니다. 다시 입력해주세요");
+			put_Point();
 		}
 	}
 	/**
