@@ -2,12 +2,12 @@ package customers;
 
 public class Customer {
 	private String id;
-	private int password;
+	private String password;
 	private int customerNumber;
 	private int customerPoint;	
 	private static int count;
 	
-	public Customer(String id, int password, int customerPoint) {
+	public Customer(String id, String password, int customerPoint) {
 		this.id = id;
 		this.password = password;
 		this.customerPoint = customerPoint;
@@ -21,10 +21,10 @@ public class Customer {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	
