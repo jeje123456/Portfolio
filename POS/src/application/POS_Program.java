@@ -310,7 +310,7 @@ public class POS_Program {
 		}
 	}
 	/**
-	 * 비밀번호 확인
+	 * 비밀번호 확인 후 포인트로 결제
 	 * @param customerID
 	 */
 	private void checkPassworld(String customerID) {
@@ -349,14 +349,12 @@ public class POS_Program {
 								}
 							}						
 						}else if(total < point) {
-							scanner.close();
-							
 							cp-=total;
 							cutomerInformation.setCustomerPoint(cp);
 							customerList.set(cn, cutomerInformation);
 							total -= total;
 							System.out.printf("고객번호 %d님 %d 포인트가 사둉되었습니다.\n", cutomerInformation.getCustomerNumber(), point);
-							System.out.printf("현재 포인트는 %d입니다.\n", cutomerInformation.getCustomerPoint());
+							System.out.printf("남은 포인트는 %d입니다.\n", cutomerInformation.getCustomerPoint());
 							Receipt_issue();
 						}
 					}else {
@@ -365,6 +363,7 @@ public class POS_Program {
 					}
 				}else {
 					System.out.println("비밀번호가 틀렸습니다. 다시 입력해주세요.");
+					checkPassworld(customerID);
 				}
 			}
 		}
